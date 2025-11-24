@@ -1,0 +1,96 @@
+.filter {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.filterButton {
+  padding: 1rem 1.75rem;
+  background-color: var(--white);
+  color: var(--dark-blue);
+  border: 2px solid transparent;
+  border-radius: var(--radius-lg);
+  font-weight: 700;
+  font-size: 1rem;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.filterButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: 0;
+}
+
+.filterButton:hover::before {
+  opacity: 0.1;
+}
+
+.filterButton:hover {
+  border-color: var(--medium-blue);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.filterButton.active {
+  background: var(--gradient-primary);
+  color: var(--white);
+  border-color: var(--white);
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.05);
+}
+
+.icon {
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.text {
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+@media (max-width: 1440px) {
+  .filterButton {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .icon {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter {
+    gap: 0.75rem;
+    padding: 1.5rem 0;
+    justify-content: center;
+  }
+
+  .filterButton {
+    flex: 1 1 auto;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.7rem;
+  }
+
+  .icon {
+    font-size: 1.25rem;
+  }
+}

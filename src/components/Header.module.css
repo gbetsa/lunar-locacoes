@@ -1,0 +1,271 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+
+  /* Começa transparente */
+  background: transparent;
+
+  /* Transição suave de cor */
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
+
+  height: 9vh;
+}
+
+/* Quando rolado */
+.scrolled {
+  background: var(--gradient-primary);
+  box-shadow: var(--shadow-lg);
+}
+
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  /* background: var(--gray-light); */
+  padding: 5px 10px;
+  border-radius: var(--radius-md);
+}
+
+
+.logoIcon {
+  height: 50px;
+  fill: var(--white);
+    filter:
+    drop-shadow(0 0 1px white)
+    drop-shadow(0 0 1px white)
+    drop-shadow(0 0 1px white)
+    drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2)); /* sombra normal */
+
+}
+
+.logoText {
+  margin-left: 10px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+
+.nav {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.navLink {
+  color: var(--white);
+  font-weight: 600;
+  transition: var(--transition);
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  font-size: 1.05rem;
+}
+
+.navLink:hover,
+.navLink.active {
+  border-bottom-color: var(--gold);
+}
+
+.navLink {
+  background: none;
+  border: none;
+}
+
+/* Wrapper do item com submenu */
+.navItemWithSub {
+  position: relative;
+}
+
+/* Submenu */
+.submenu {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  background: white;
+  min-width: 220px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  z-index: 9999;
+}
+
+/* Cada item */
+.submenuItem {
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #222;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.submenuItem:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+
+.mobileMenuButton {
+  display: none;
+  background: var(--gold);
+  border: none;
+  color: var(--dark-blue);
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+}
+
+.mobileNav {
+  display: none;
+}
+
+@media (max-width: 1440px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  .logoIcon {
+    height: 30px;
+  }
+
+  .logoText {
+    font-size: 1rem;
+  }
+
+  .navLink {
+    font-size: 1rem;
+  }
+
+}
+
+@media (max-width: 1024px) {
+
+  .nav {
+    display: none;
+  }
+
+  .mobileMenuButton {
+    display: block;
+  }
+
+  /* MENU MOBILE – container principal */
+  .mobileNav {
+    position: fixed;
+    /* ← AQUI! */
+    top: 9vh;
+    /* altura exata do header */
+    left: 0;
+    width: 100%;
+    background: var(--gradient-primary);
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-xl);
+    z-index: 99;
+
+    /* animação */
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+  }
+
+  /* quando ABERTO */
+  .mobileNav:not(.closed) {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobileNav.closed {
+    /* não use display: none; pq quebra animação */
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .mobileNavLink {
+    color: var(--white);
+    padding: 1rem;
+    border-left: 3px solid transparent;
+    transition: var(--transition);
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+  }
+
+  .mobileNavLink:hover,
+  .mobileNavLink.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* Container do submenu (mobile) */
+  .mobileSubmenuContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* O botão principal "Categorias ▾" no mobile */
+  .mobileSubmenuContainer>.mobileNavLink {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* O submenu mobile em si */
+  .mobileSubmenu {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.07);
+    margin-top: 6px;
+    border-left: 3px solid var(--gold);
+    padding-left: 10px;
+
+    /* ANIMAÇÃO */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  /* QUANDO o submenu está aberto */
+  .mobileSubmenu.open {
+    max-height: 600px;
+    /* suficiente p/ todos itens */
+  }
+
+  /* Cada item dentro do submenu */
+  .mobileSubmenuItem {
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--white);
+    font-size: 0.7rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .mobileSubmenuItem:hover {
+    color: var(--gold);
+  }
+
+}

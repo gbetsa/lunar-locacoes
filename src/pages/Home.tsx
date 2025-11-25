@@ -75,29 +75,31 @@ const Home = () => {
     <div className={styles.home}>
       <Header />
 
-      <section className={styles.hero} id="home">
-        <img src={heroEvents} alt="Hero" className={styles.heroImage} />
-        <div className={styles.heroOverlay} />
-        <div className={styles.heroContent}>
-          <div className={styles.heroBadge}>
-            EXPERIÊNCIA QUE FAZ DIFERENÇA
+      <div className={styles.heroContainer}>
+        <section className={styles.hero} id="home">
+          <img src={heroEvents} alt="Hero" className={styles.heroImage} />
+          <div className={styles.heroOverlay} />
+          <div className={styles.heroContent}>
+            <div className={styles.heroBadge}>
+              EXPERIÊNCIA QUE FAZ DIFERENÇA
+            </div>
+            <h1 className={styles.heroTitle}>
+              Transforme Suas Necessidades Em{" "}
+              <span className={styles.heroHighlight}>
+                Soluções de Locação Imediata
+              </span>
+            </h1>
+            <p className={styles.heroSubtitle}>
+              Equipamentos, mobiliários e itens diversos para locação com
+              qualidade, rapidez e praticidade para qualquer tipo de projeto,
+              ocasião ou necessidade diária.
+            </p>
           </div>
-          <h1 className={styles.heroTitle}>
-            Transforme Suas Necessidades Em{" "}
-            <span className={styles.heroHighlight}>
-              Soluções de Locação Imediata
-            </span>
-          </h1>
-          <p className={styles.heroSubtitle}>
-            Equipamentos, mobiliários e itens diversos para locação com
-            qualidade, rapidez e praticidade para qualquer tipo de projeto,
-            ocasião ou necessidade diária.
-          </p>
-          <div className={styles.heroSearchContainer}>
-            <SearchBar onSearch={setSearchQuery} />
-          </div>
+        </section>
+        <div className={styles.heroSearchContainer}>
+          <SearchBar onSearch={setSearchQuery} />
         </div>
-      </section>
+      </div>
 
       <main className={styles.main}>
         <section className={styles.section} id="itemsSection">

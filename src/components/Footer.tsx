@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
 
         <div className={styles.bottom}>
-          <p>&copy; {new Date().getFullYear()} Lunar Events. Todos os direitos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} Lunar Locações. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

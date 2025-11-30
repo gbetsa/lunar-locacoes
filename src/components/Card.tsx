@@ -1,3 +1,4 @@
+// Updated Card component to display rentalPeriod instead of price
 import { Link } from "react-router-dom";
 import { EventItem } from "../data/mockData";
 import styles from "./Card.module.css";
@@ -27,29 +28,29 @@ import forno from "../assets/forno.jpg";
 import forno2 from "../assets/forno-2.jpg";
 
 const imageMap: { [key: string]: string } = {
-  "cadeira": cadeira,
+  cadeira,
   "cadeira-2": cadeira2,
-  "luminaria": luminaria,
+  luminaria,
   "luminaria-2": luminaria2,
-  "mesa": mesa,
+  mesa,
   "mesa-2": mesa2,
-  "ferramentas": ferramentas,
+  ferramentas,
   "ferramentas-2": ferramentas2,
-  "som": som,
+  som,
   "som-2": som2,
-  "freezer": freezer,
+  freezer,
   "freezer-2": freezer2,
-  "lavadora": lavadora,
+  lavadora,
   "lavadora-2": lavadora2,
-  "microondas": microondas,
+  microondas,
   "microondas-2": microondas2,
-  "tenda": tenda,
+  tenda,
   "tenda-2": tenda2,
-  "cafeteira": cafeteira,
+  cafeteira,
   "cafeteira-2": cafeteira2,
-  "ventilador": ventilador,
+  ventilador,
   "ventilador-2": ventilador2,
-  "forno": forno,
+  forno,
   "forno-2": forno2,
 };
 
@@ -87,18 +88,13 @@ const Card = ({ item }: CardProps) => {
           <div className={styles.availabilityDot}></div>
           {item.availability}
         </div>
-
-        <div className={styles.priceContainer}>
-          <div className={styles.price}>
-            {item.price}
-            <span className={styles.priceType}>{item.priceType}</span>
-          </div>
-          {item.minQuantity > 1 && (
-            <div className={styles.minQuantity}>
-              Mín: {item.minQuantity} un.
-            </div>
-          )}
+        <div className={styles.rentalContainer}>
+          <div className={styles.rental}>{item.rentalPeriod}</div>
         </div>
+
+        {item.minQuantity > 1 && (
+          <div className={styles.minQuantity}>Mín: {item.minQuantity} un.</div>
+        )}
 
         <div className={styles.buttons}>
           <Link
@@ -107,6 +103,7 @@ const Card = ({ item }: CardProps) => {
           >
             Ver Detalhes
           </Link>
+
           <button
             onClick={handleWhatsAppClick}
             className={`${styles.button} ${styles.buttonWhatsApp}`}

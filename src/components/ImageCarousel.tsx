@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ImageLightbox from "./ImageLightbox";
 import styles from "./ImageCarousel.module.css";
 
 import cadeira from "../assets/cadeira.webp";
@@ -60,6 +61,7 @@ interface ImageCarouselProps {
 
 const ImageCarousel = ({ images, alt }: ImageCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   const goToNext = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -74,74 +76,73 @@ const ImageCarousel = ({ images, alt }: ImageCarouselProps) => {
   };
 
   return (
-    <div className={styles.carousel}>
-      <img
-        src={imageMap[images[currentIndex]]}
-        alt={`${alt} - Imagem ${currentIndex + 1}`}
-        className={styles.mainImage}
-      />
+    <>
+      <div className={styles.carousel}>
+        <img
+          src={imageMap[images[currentIndex]]}
+          alt={`${alt} - Imagem ${currentIndex + 1}`}
+          className={styles.mainImage}
+          onClick={() => setLightboxOpen(true)} // <-- abrir imagem
+          style={{ cursor: "zoom-in" }} // opcional
+        />
 
-      <div className={styles.navigation}>
-        <button
-          className={styles.navButton}
-          onClick={goToPrevious}
-          disabled={images.length <= 1}
-          aria-label="Imagem anterior"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
+        <div className={styles.navigation}>
+          <button
+            className={styles.navButton}
+            onClick={goToPrevious}
+            disabled={images.length <= 1}
+            aria-label="Imagem anterior"
           >
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-        <button
-          className={styles.navButton}
-          onClick={goToNext}
-          disabled={images.length <= 1}
-          aria-label="Próxima imagem"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <button
+            className={styles.navButton}
+            onClick={goToNext}
+            disabled={images.length <= 1}
+            aria-label="Próxima imagem"
           >
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-      </div>
-
-      <div className={styles.indicator}>
-        {currentIndex + 1} / {images.length}
-      </div>
-
-      {images.length > 1 && (
-        <div className={styles.thumbnails}>
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className={`${styles.thumbnail} ${
-                index === currentIndex ? styles.active : ""
-              }`}
-              onClick={() => goToIndex(index)}
-            >
-              <img
-                src={imageMap[image]}
-                alt={`Miniatura ${index + 1}`}
-                className={styles.thumbnailImage}
-              />
-            </div>
-          ))}
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
         </div>
+
+        <div className={styles.indicator}>
+          {currentIndex + 1} / {images.length}
+        </div>
+
+        {images.length > 1 && (
+          <div className={styles.thumbnails}>
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className={`${styles.thumbnail} ${
+                  index === currentIndex ? styles.active : ""
+                }`}
+                onClick={() => goToIndex(index)}
+              >
+                <img
+                  src={imageMap[image]}
+                  alt={`Miniatura ${index + 1}`}
+                  className={styles.thumbnailImage}
+                />
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {lightboxOpen && (
+        <ImageLightbox
+          src={imageMap[images[currentIndex]]}
+          alt={alt}
+          onClose={() => setLightboxOpen(false)}
+        />
       )}
-    </div>
+    </>
   );
 };
 

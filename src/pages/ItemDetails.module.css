@@ -117,7 +117,7 @@
   }
 }
 
-.priceBox {
+.rentalBox {
   display: flex;
   justify-content: flex-end;
   background: var(--gradient-primary);
@@ -128,19 +128,13 @@
   gap: .5rem;
 }
 
-.price {
-  font-size: 2rem;
+.rental {
+  font-size: 1rem;
   font-weight: 900;
   color: var(--white);
   line-height: 1;
 }
 
-.priceType {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--light-blue);
-  margin-top: 0.5rem;
-}
 
 .tags {
   display: flex;
@@ -351,17 +345,12 @@
     font-size: 1.5rem;
   }
 
-  .priceBox {
+  .rentalBox {
     padding: 1.25rem 1.5rem;
   }
 
-  .price {
-    font-size: 1.5rem;
-  }
-
-  .priceType {
+  .rental {
     font-size: 1rem;
-    margin-top: 0;
   }
 
   .availability {
@@ -422,15 +411,7 @@
     font-size: 1.5rem;
   }
 
-  .priceBox{
-    justify-content: center;
-  }
-
-  .price {
-    font-size: 1.5rem;
-  }
-
-  .priceType {
+  .rental {
     font-size: 1rem;
   }
 

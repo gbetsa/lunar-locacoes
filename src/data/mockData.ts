@@ -16,8 +16,7 @@ export interface EventItem {
   title: string;
   description: string;
   category: string;
-  price: string;
-  priceType: string;
+  rentalPeriod: string;
   images: string[];
   whatsapp: string;
   availability: string;
@@ -36,8 +35,7 @@ export const eventItems: EventItem[] = [
     description:
       "Cadeira dobrável com estrutura reforçada em aço carbono e assento anatômico. Ideal para locações residenciais, comerciais ou corporativas. Fácil de transportar, leve e resistente.",
     category: "Mobiliário",
-    price: "R$ 8,00",
-    priceType: "/unidade",
+    rentalPeriod: "Locação por 5 dias",
     images: ["cadeira", "cadeira-2"],
     whatsapp: "5511963119191",
     availability: "Disponível",
@@ -56,8 +54,7 @@ export const eventItems: EventItem[] = [
     description:
       "Luminária LED industrial de alta potência, ideal para iluminar galpões, áreas de trabalho, filmagens, obras e espaços amplos. Economia de energia e excelente desempenho.",
     category: "Iluminação",
-    price: "R$ 65,00",
-    priceType: "/dia",
+    rentalPeriod: "Locação por 1 dia",
     images: ["luminaria", "luminaria-2"],
     whatsapp: "5511963119191",
     availability: "Disponível",
@@ -76,8 +73,7 @@ export const eventItems: EventItem[] = [
     description:
       "Mesa dobrável retangular com tampo resistente e estrutura reforçada. Ideal para trabalhos, reuniões, pequenos eventos, churrascos, exposições e uso geral.",
     category: "Mobiliário",
-    price: "R$ 35,00",
-    priceType: "/unidade",
+    rentalPeriod: "Locação por 5 dias",
     images: ["mesa", "mesa-2"],
     whatsapp: "5511963119191",
     availability: "Disponível",
@@ -96,8 +92,7 @@ export const eventItems: EventItem[] = [
     description:
       "Kit completo de ferramentas com maleta rígida. Ideal para reparos, manutenções, instalações, oficinas ou projetos DIY. Alta durabilidade e variedade completa.",
     category: "Ferramentas",
-    price: "R$ 45,00",
-    priceType: "/dia",
+    rentalPeriod: "Locação por 1 dia",
     images: ["ferramentas", "ferramentas-2"],
     whatsapp: "5511963119191",
     availability: "Disponível",
@@ -116,8 +111,7 @@ export const eventItems: EventItem[] = [
     description:
       "Caixa de som amplificada com Bluetooth, entrada USB, bateria interna e alta potência. Ideal para festas pequenas, reuniões, publicidade em ambientes externos, aulas e eventos corporativos.",
     category: "Tecnologia",
-    price: "R$ 70,00",
-    priceType: "/dia",
+    rentalPeriod: "Locação por 1 dia",
     images: ["som", "som-2"],
     whatsapp: "5511963119191",
     availability: "Disponível",
@@ -136,8 +130,7 @@ export const eventItems: EventItem[] = [
     description:
       "Freezer vertical de 300 litros, ideal para restaurantes temporários, feiras, eventos gastronômicos, apoio de cozinha ou armazenamento extra em residências.",
     category: "Eletrodomésticos",
-    price: "R$ 120,00",
-    priceType: "/dia",
+    rentalPeriod: "Locação por 1 mês",
     images: ["freezer", "freezer-2"],
     whatsapp: "5511963119191",
     availability: "Disponível",
@@ -156,8 +149,7 @@ export const eventItems: EventItem[] = [
     description:
       "Lavadora de alta pressão ideal para limpezas externas, automóveis, áreas industriais e pavimentos. Equipamento potente, econômico e fácil de usar.",
     category: "Equipamentos",
-    price: "R$ 85,00",
-    priceType: "/dia",
+    rentalPeriod: "Locação por 15 dias",
     images: ["lavadora", "lavadora-2"],
     whatsapp: "5511963119191",
     availability: "Disponível",
@@ -176,8 +168,7 @@ export const eventItems: EventItem[] = [
     description:
       "Micro-ondas moderno de 30 litros, ideal para cozinhas temporárias, feiras gastronômicas, suporte de cozinha ou uso residencial emergencial.",
     category: "Eletrodomésticos",
-    price: "R$ 40,00",
-    priceType: "/dia",
+    rentalPeriod: "Locação por 15 dias",
     images: ["microondas", "microondas-2"],
     whatsapp: "5511963119191",
     availability: "Disponível",
@@ -195,8 +186,7 @@ export const eventItems: EventItem[] = [
     description:
       "Tenda reforçada de 3x3m, ideal para áreas externas, proteção contra sol e chuva, feiras, vendas e ambientes temporários.",
     category: "Estruturas",
-    price: "R$ 95,00",
-    priceType: "/dia",
+    rentalPeriod: "Locação por 1 dia",
     images: ["tenda", "tenda-2"],
     whatsapp: "5511963119191",
     availability: "Disponível",
@@ -214,8 +204,7 @@ export const eventItems: EventItem[] = [
     description:
       "Cafeteira elétrica ideal para escritórios temporários, recepções ou uso doméstico. Prepara até 30 xícaras.",
     category: "Eletrodomésticos",
-    price: "R$ 25,00",
-    priceType: "/dia",
+    rentalPeriod: "Locação por 1 dia",
     images: ["cafeteira", "cafeteira-2"],
     whatsapp: "5511963119191",
     availability: "Disponível",
@@ -233,8 +222,7 @@ export const eventItems: EventItem[] = [
     description:
       "Ventilador industrial de alto desempenho indicado para galpões, lojas, estúdios e ambientes amplos.",
     category: "Equipamentos",
-    price: "R$ 50,00",
-    priceType: "/dia",
+    rentalPeriod: "Locação por 1 dia",
     images: ["ventilador", "ventilador-2"],
     whatsapp: "5511963119191",
     availability: "Disponível",
@@ -252,8 +240,7 @@ export const eventItems: EventItem[] = [
     description:
       "Forno elétrico ideal para cozinhas temporárias, food trucks ou uso doméstico emergencial.",
     category: "Eletrodomésticos",
-    price: "R$ 35,00",
-    priceType: "/dia",
+    rentalPeriod: "Locação por 1 dia",
     images: ["forno", "forno-2"],
     whatsapp: "5511963119191",
     availability: "Disponível",
